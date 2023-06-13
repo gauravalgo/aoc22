@@ -9,7 +9,15 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED YES)
 set(CMAKE_CXX_EXTENSIONS NO)
 
-include(dependencies.cmake)
+include(FetchContent)
+
+FetchContent_Declare(GSL
+        GIT_REPOSITORY "https://github.com/microsoft/GSL"
+        GIT_TAG "v4.0.0"
+        GIT_SHALLOW ON
+        )
+
+FetchContent_MakeAvailable(GSL)
 
 add_executable(day1.1 day1.1.cpp)
     # set_target_properties(${name} PROPERTIES LINK_FLAGS /STACK:10000000)
